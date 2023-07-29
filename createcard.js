@@ -23,6 +23,9 @@ function callToNextCard(info) {
 }
 
 function createCard(data) {
+
+    let ll=document.getElementById('learnt')
+    ll.innerHTML=getLearnt()
     // create card
 
     let card = document.createElement('div')

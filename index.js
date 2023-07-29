@@ -6,11 +6,12 @@ function sendCorrection(info) {
     console.log(info)
 }
 
-
-function reset() {
+function getLearnt() {
+    return wordList.filter(function(item){
+        return item[2]>2;
+    }).length;
 
 }
-
 function getWordAtPos(x) {
     let wordN=nextWord[x]
     let w=wordList[wordN]
