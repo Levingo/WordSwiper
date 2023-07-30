@@ -820,8 +820,8 @@ var wordListBackup = [
         0
     ],
     [
-        "the right",
-        "la destra",
+        "right",
+        "destra",
         0
     ],
     [
