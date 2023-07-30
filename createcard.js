@@ -96,9 +96,10 @@ function createCard(data) {
     function save() {
         that.saveWord(engEdit.value)
     }
-    function show() {
+    function show() {  // show the english word
         eng.style.display = "";
         eng2.style.display = ""
+        pauseAll()
 
     }
 
@@ -106,6 +107,7 @@ function createCard(data) {
         eng.style.display = "";
         editGroup.style.display = "none";
         eng2.style.display = ""
+        pauseAll()
 
     }
 
@@ -117,6 +119,7 @@ function createCard(data) {
     function playagain() {
         that.play()
     }
+
 
     card.onclick=show;
     eng2.ondblclick =edit;

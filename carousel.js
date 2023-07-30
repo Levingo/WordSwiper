@@ -1,4 +1,40 @@
 var that = 0
+var audioList=[] // each item is dictionary. status + aud
+
+function playCurrent() {
+    if (audioList[0].status=="played") audioList[0].aud.load()
+    audioList[0].aud.play()
+    audioList[0].status="played"
+}
+
+//function replayCurrent() {
+//    audioList[0].aud.load()
+//    audioList[0].aud.play()
+//}
+
+function removeCurrentAudio() {
+    audioList.shift()
+}
+
+function addToAudio(cardId) {
+    let txt = cardId.split(":")[1]
+    let audiosrc = "mp3files/" + ((txt).split(" ").join("_")) + ".mp3";
+    var audio = new Audio(audiosrc);
+    audioList.push({aud: audio, status: "new"});
+    //audio.play().then(() => {audio.pause()})
+}
+
+function playNpause(aud) {
+    aud.play().then(() => {aud.pause()})
+}
+function pauseAll() {
+    for(var i=0;i<audioList.length;i++) {
+        if (audioList[i].status=="new")
+            playNpause(audioList[i].aud)
+            audioList[i].status=="paused"
+    }
+}
+
 class Carousel {
     constructor(element) {
         this.board = element
@@ -29,12 +65,18 @@ class Carousel {
         setTimeout(s, 1000);
 
     }
+
+
+
     play() {
-        let txt = this.topCard.id.split(":")[1]
-        let audiosrc = "mp3files/" + ((txt).split(" ").join("_")) + ".mp3";
-        let audio = new Audio(audiosrc);
-        audio.play();
+        //let txt = this.topCard.id.split(":")[1]
+        //let audiosrc = "mp3files/" + ((txt).split(" ").join("_")) + ".mp3";
+        //let audio = new Audio(audiosrc);
+
+        //audio.play();
+        playCurrent()
     }
+
     getWordWithoutArticle() {
         let txt = this.topCard.id.split(":")[1]
         if (txt.startsWith('il ')) {
@@ -164,6 +206,7 @@ class Carousel {
                 setTimeout(() => {
                     // remove swiped card
                     this.board.removeChild(this.topCard)
+                    removeCurrentAudio()
                     // add new card
                     this.push(info)
                     // handle gestures on new top card
@@ -183,6 +226,8 @@ class Carousel {
     push(info) {
         that = this
         let card = createCard(callToNextCard(info));
+        console.log(card.id)
+        addToAudio(card.id)
         that.board.insertBefore(card, that.board.firstChild)
         that.handle()
     }
@@ -194,6 +239,8 @@ class Carousel {
     pushBegin() {
         that = this
         let card = createCard(callToNextCard({}));
+        console.log(card.id)
+        addToAudio(card.id)
         that.board.insertBefore(card, that.board.firstChild)
     }
 

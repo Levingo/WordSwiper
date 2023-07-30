@@ -65,7 +65,7 @@ var wordListBackup = [
         0
     ],
     [
-        "And",
+        "(he/she) is",
         "è",
         0
     ],
