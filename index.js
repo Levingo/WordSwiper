@@ -93,3 +93,10 @@ function reset() {
     loadJSON()
     saveStorage()
 }
+
+function fix() {
+    for(var i=0;i<wordList.length;i++) {
+        wordList[i][0]=wordListBackup[i][0]
+    }
+    saveStorage()
+}

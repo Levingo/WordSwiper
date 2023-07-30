@@ -440,7 +440,7 @@ var wordListBackup = [
         0
     ],
     [
-        "I had",
+        "he/she had",
         "aveva",
         0
     ],
@@ -785,7 +785,7 @@ var wordListBackup = [
         0
     ],
     [
-        "Candies",
+        "to be able to",
         "Potere",
         0
     ],
