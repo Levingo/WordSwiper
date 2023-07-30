@@ -790,7 +790,7 @@ var wordListBackup = [
         0
     ],
     [
-        "winds",
+        "twenty",
         "venti",
         0
     ],
