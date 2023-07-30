@@ -3,6 +3,7 @@ var audioList=[] // each item is dictionary. status + aud
 
 function playCurrent() {
     if (audioList[0].status=="played") audioList[0].aud.load()
+    audioList[0].aud.volume = 1;
     audioList[0].aud.play()
     audioList[0].status="played"
 }
@@ -24,6 +25,7 @@ function addToAudio(cardId) {
 }
 
 function playNpause(aud) {
+    aud.volume = 0.02;
     aud.play().then(() => {aud.pause()})
 }
 function pauseAll() {
