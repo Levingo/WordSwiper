@@ -30,7 +30,7 @@ function pauseAll() {
     for(var i=0;i<audioList.length;i++) {
         if (audioList[i].status=="new")
             playNpause(audioList[i].aud)
-            audioList[i].status=="paused"
+            audioList[i].status="paused"
     }
 }
 
