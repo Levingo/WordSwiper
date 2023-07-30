@@ -19,8 +19,7 @@ function removeCurrentAudio() {
 function addToAudio(cardId) {
     let txt = cardId.split(":")[1]
     let audiosrc = "mp3files/" + ((txt).split(" ").join("_")) + ".mp3";
-    var audio = new Audio(audiosrc);
-    audioList.push({aud: audio, status: "new"});
+    audioList.push({aud: new Audio(audiosrc), status: "new"});
     //audio.play().then(() => {audio.pause()})
 }
 
